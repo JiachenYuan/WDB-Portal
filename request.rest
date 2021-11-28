@@ -1,0 +1,84 @@
+POST http://localhost:4000/user/signup
+Content-Type: application/json
+
+{
+    "username": "Jiachen Yuan",
+    "password": "everything"
+}
+
+###
+POST http://localhost:4000/user/login
+Content-Type: application/json
+
+{
+    "username": "Jiachen Yuan",
+    "password": "everything"
+}
+
+###
+GET http://localhost:4000/user/me
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4MzMwNGNiZDg2NmQxY2ZmNzMwMmZjIn0sImlhdCI6MTYzNTk4NzU1NSwiZXhwIjoxNjM1OTkxMTU1fQ.3tUCf3QzvR_lgJ1G4uzPwcAJ4a-QuFxXFQFUS9ybWzc
+
+###
+GET http://localhost:4000/shop/list
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4MzMwNGNiZDg2NmQxY2ZmNzMwMmZjIn0sImlhdCI6MTYzNTk4NzU1NSwiZXhwIjoxNjM1OTkxMTU1fQ.3tUCf3QzvR_lgJ1G4uzPwcAJ4a-QuFxXFQFUS9ybWzc
+
+###
+POST http://localhost:4000/shop/add
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4MzMwNGNiZDg2NmQxY2ZmNzMwMmZjIn0sImlhdCI6MTYzNTk4NzU1NSwiZXhwIjoxNjM1OTkxMTU1fQ.3tUCf3QzvR_lgJ1G4uzPwcAJ4a-QuFxXFQFUS9ybWzc
+Content-Type: application/json
+
+{
+    "item": "banana"
+}
+
+###
+DELETE http://localhost:4000/shop/delete
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE4MzMwNGNiZDg2NmQxY2ZmNzMwMmZjIn0sImlhdCI6MTYzNTk4NzU1NSwiZXhwIjoxNjM1OTkxMTU1fQ.3tUCf3QzvR_lgJ1G4uzPwcAJ4a-QuFxXFQFUS9ybWzc
+Content-Type: application/json
+
+{
+    "item": "apple"
+}
+
+###
+POST http://localhost:4000/user/signup
+Content-Type: application/json
+
+{
+    "username": "Jiachen Yuan",
+    "password": "everything"
+    
+}
+
+###
+POST http://localhost:4000/user/login
+Content-Type: application/json
+
+{
+    "username": "Jiachen Yuan",
+    "password": "everything"
+}
+
+###
+GET http://localhost:4000/user/me
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMzRiYTY1YzQ4MDY5OTc5YzQ5YmIzIn0sImlhdCI6MTYzODA5MTY5MSwiZXhwIjoxNjM4MDk1MjkxfQ.8aYwJ_dyhlI55yR-kDA_Ivb8vWsex9rU-b237o3GbP0
+
+###
+POST http://localhost:4000/api/add
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMzRiYTY1YzQ4MDY5OTc5YzQ5YmIzIn0sImlhdCI6MTYzODA5MTY5MSwiZXhwIjoxNjM4MDk1MjkxfQ.8aYwJ_dyhlI55yR-kDA_Ivb8vWsex9rU-b237o3GbP0
+Content-Type: application/json
+
+{
+    "hw_number": 0,
+    "link": "https://github.com/JiachenYuan/JiachenYuan-WDB-education/blob/master/assign1p1.html"
+}
+
+###
+DELETE  http://localhost:4000/api/delete
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMzQ1ZDNjNmVjOGMwYmE5NDM3NWNlIn0sImlhdCI6MTYzODA5MDE5NSwiZXhwIjoxNjM4MTAwMTk1fQ.5xIihFKA4oTjCNOqGJAgEskPrb3DGHiYbTlPk8cD4Q4
+Content-Type: application/json
+
+{
+    "hw_number": 0
+}
