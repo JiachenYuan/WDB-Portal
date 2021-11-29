@@ -3,8 +3,10 @@ const { check, validationResult} = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
+const axios = require("axios");
 
 const router = express.Router();
+
 
 
 const User = require("../model/User.js");
@@ -12,9 +14,7 @@ const User = require("../model/User.js");
 router.post("/signup", [
     check("username", "Please Enter a Valid Username")
     .not()
-    .isEmpty(),
-    check("password", "Please enter a valid password")
-    .isLength({min: 6})    
+    .isEmpty(), 
 ], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -23,8 +23,8 @@ router.post("/signup", [
         });
     }
 
-    const {username, password} = req.body;
-    // TODO: The number of homework need to be serialized instead of hardcoded
+    const {username} = req.body;
+
     const hwList = new Array(12);
     for (let i=0; i<12; i++) {
       hwList[i] = {link: "null", grade: "ungraded"};
@@ -35,21 +35,25 @@ router.post("/signup", [
             username: username
         })
 
-        if (user) {
-            return res.status(400).json({
-                msg: "User Already Exists"  
-            });
+        if (user) { // The make it an "early return statement", using user/login 's response as this request's response
+            const temp = await axios.post("http://localhost:4000/user/login", {username: username}); 
+            return res.status(200).json(temp.data);        
+            console.log("Anything should not be printed")
+            
+            
+            // return res.status(400).json({
+            //     msg: "User Already Exists"  
+            // });
         }
 
         user = new User({
             username: username, 
-            password: password,
             homeworklist: hwList
         });
 
         // Encrypting the password using bcryptjs
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(user.password, salt);
+        // const salt = await bcrypt.genSalt(10);
+        // user.password = await bcrypt.hash(user.password, salt);
 
         await user.save();
 
@@ -85,7 +89,6 @@ router.post(
     check("username", "Please enter a valid username")
     .not()
     .isEmpty(),
-    check("password", "Please enter a valid password").isLength({min: 6})
     ],
     async (req, res) => {
       const errors = validationResult(req);
@@ -96,7 +99,7 @@ router.post(
         });
       }
   
-      const { username, password, homeworklist } = req.body;
+      const {username} = req.body;
       try {
         let user = await User.findOne({
           username: username
@@ -106,11 +109,11 @@ router.post(
             message: "User Not Exist"
           });
   
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch)
-          return res.status(400).json({
-            message: "Incorrect Password !"
-          });
+        // const isMatch = await bcrypt.compare(password, user.password);
+        // if (!isMatch)
+        //   return res.status(400).json({
+        //     message: "Incorrect Password !"
+        //   });
   
         const payload = {
           user: {

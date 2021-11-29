@@ -43,6 +43,20 @@ router.delete("/delete", auth, async (req, res) => {
 });
 
 
+// router.post("/formExtract", auth, async (req, res)=> {
+//     try {
+//         const hw_number = req.body.homeworkNumber;
+//         const link = req.body.homeworkLink;
+//         const toAdd = {hw_number: hw_number, link: link};
+//         const temp = await axios.post("http://localhost:4000/api/add", toAdd);
+//         return res.json(temp.data);
+//     } catch(e) {
+//         res.send({message: "Erorr in extracting the form"})
+//     }
+// });
+
+
+
 
 
 

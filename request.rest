@@ -76,9 +76,27 @@ Content-Type: application/json
 
 ###
 DELETE  http://localhost:4000/api/delete
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMzQ1ZDNjNmVjOGMwYmE5NDM3NWNlIn0sImlhdCI6MTYzODA5MDE5NSwiZXhwIjoxNjM4MTAwMTk1fQ.5xIihFKA4oTjCNOqGJAgEskPrb3DGHiYbTlPk8cD4Q4
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMzRiYTY1YzQ4MDY5OTc5YzQ5YmIzIn0sImlhdCI6MTYzODA5MTY5MSwiZXhwIjoxNjM4MDk1MjkxfQ.8aYwJ_dyhlI55yR-kDA_Ivb8vWsex9rU-b237o3GbP0
 Content-Type: application/json
 
 {
     "hw_number": 0
+}
+
+### 
+POST http://localhost:4000/user/signup
+Content-Type: application/json
+
+{
+    "username": "haha"
+}
+
+###
+POST http://localhost:4000/api/formExtract
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhNDQ5MTE3MzFiMDhmZDcwNTkyZGI1In0sImlhdCI6MTYzODE1NjU2MSwiZXhwIjoxNjM4MTY2NTYxfQ.OsNe-B4E49mRuuFGEjQ6Pxag9hQukAGwp2z-9iQP2Ag
+Content-Type: application/x-www-form-urlencoded
+
+{
+    "homeworkNumer": 0,
+    "homeworkLink": 0
 }

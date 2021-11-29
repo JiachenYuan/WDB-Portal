@@ -3,7 +3,7 @@
 const express = require("express");
 const InitiateMongoServer = require("./config/db.js");
 const user = require("./routes/user")
-const hw = require("./routes/hw.js")
+const student = require("./routes/student.js")
 const cors = require("cors");
 
 
@@ -19,6 +19,10 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 
 app.use(cors());
+app.use(express.urlencoded({
+  extended: true
+}))
+
 app.get("/", (req, res) => {
   res.json({ message: "API Working" });
 });
@@ -27,7 +31,7 @@ app.get("/", (req, res) => {
 
 
 app.use("/user", user);
-app.use("/api", hw);
+app.use("/api", student);
 
 
 
