@@ -15,9 +15,17 @@ async function onSuccess(googleUser) {
               body: JSON.stringify({
                   "username": userName
               })
-          }).then(res=>res.json().then(converted=>console.log(converted)));
+          }).then(res=>res.json().then(converted=>{
+            console.log(converted);
+            redirectWithToken(converted.token);
+          }));
     }
   }
+
+async function redirectWithToken(token) {
+    window.location.replace(`http://localhost:8000/html/student.html?token=${token}`);  
+}
+
 
   function onFailure(error) {
     console.log(error);
@@ -31,7 +39,7 @@ async function onSuccess(googleUser) {
       'theme': 'dark',
       'onsuccess': onSuccess,
       'onfailure': onFailure
-      
+
     });
   }
 
