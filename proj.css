@@ -1,0 +1,21 @@
+*{
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+    color: E8E9F3;
+    background-color: #E8E9F3;
+  }
+
+
+.title{
+    position: absolute;
+    width: 1307px;
+    height: 193px;
+    left: 60px;
+    top: 300px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 50;
+    font-size: 60px;
+    line-height: 75px;
+    color: #571F4E;
+}
