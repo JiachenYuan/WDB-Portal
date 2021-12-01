@@ -1,0 +1,21 @@
+.HwContainer {
+    width: 400px;
+    height: 30px;
+    position: relative;
+    top: 30px;
+    left: 50px;
+    background-color: beige;
+    border: solid;
+    border-radius: 10px;
+    border-width:1px;
+}
+
+.uploadButton {
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+
+}
+
