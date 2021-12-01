@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="proj.css">
+    <meta name="google-signin-client_id" content="521689020340-fb6nm5u9h438hrhubekeh7qml5vqcjqu.apps.googleusercontent.com">
+    <link rel="stylesheet" href="index.css">
     <title>WDB Portal</title>
+    <script src="index.js"></script>
 </head>
 <body>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <div class="logo">
         <img src= "design/wdblogo.png" alt = "site logo" height= "150px" width= "150px">
     </div>
@@ -18,6 +21,7 @@
         <header>by Web Development @ Berkeley</header>
     </div>
     <button class="login-button" >Login</button> 
-
+    <div id="my-signin2"></div>
+    <button onclick="signOut()">sign out</button>
 </body>
 </html>
