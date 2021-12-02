@@ -1,12 +1,10 @@
 *{
   font-family: "Helvetica", sans-serif;
-  font-weight: 300;
-  background-color: #E8E9F3;
 }
 
 .wave1 {
   position: absolute;
-  top: 505px;
+  top: 480px;
   bottom:0px;
   left: 0px;
   z-index: 2;
@@ -15,24 +13,24 @@
 
   position: absolute;
   left: 0;
-    top: 0;
-    left: 0;
-    z-index: 3;
+  top: 0;
+  left: 0;
+  z-index: 3;
 }
 
 .logo{
   position: absolute;
   left: 45px;
-  top: 66px;
+  top: 77px;
   z-index: 4;
 
 }
 .title{
   position: relative;
   left: 50px;
-  top: 250px;
+  top: 240px;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 61px;
   line-height: 75px;
   color: #571F4E;
@@ -46,9 +44,9 @@
 .subtitle{
   position: relative;
   left: 52px;
-  top: 220px;
+  top: 210px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 36px;
   line-height: 42px;
   color: #4F759B;
@@ -65,8 +63,9 @@
   /* font-weight: 500; */
   /* font-size: 25px; */
   position: relative;
-  top: 200px;
+  top: 190px;
   left: 21px;
+  background-color: #cccccc;
   /* align-items: center; */
   /* background-image: linear-gradient(144deg,#4F759B, #719FA6 50%,#92C9B1); */
   /* border: 0; */
@@ -83,10 +82,12 @@
   /* touch-action: manipulation; */
   /* white-space: nowrap; */
   z-index: -1;
+  animation-name: fadeInDown;
+  animation-duration: 3.5s;
 }
 
 #my-signin2 {
-background-color: none;
+background-color: transparent;
 }
 
 
