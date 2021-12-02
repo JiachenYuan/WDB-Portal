@@ -1,171 +1,190 @@
 *{
-    font-family: "Helvetica", sans-serif;
-    font-weight: 300;
-    background-color: #E8E9F3;
-  }
+  font-family: "Helvetica", sans-serif;
+  font-weight: 300;
+  background-color: #E8E9F3;
+}
 
 .logo{
-    position: absolute;
-    left: 45px;
-    top: 10px;
+  position: absolute;
+  left: 45px;
+  top: -10px;
 
 }
 
 .title{
-    position: relative;
-    left: 50px;
-    top: 150px;
-    font-style: normal;
-    font-weight: 110px;
-    font-size: 55px;
-    line-height: px;
-    color: #571F4E;
-    clear: left;
+  position: relative;
+  left: 50px;
+  top: 150px;
+  font-style: normal;
+  font-weight: 110px;
+  font-size: 55px;
+  line-height: px;
+  color: #571F4E;
+  clear: left;
 }
 
 .subtitle{
-    position: relative;
-    left: 0px;
-    top: -30px;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 28px;
-    line-height: 42px;
-    color: #4F759B;
+  position: relative;
+  left: 0px;
+  top: -30px;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 42px;
+  color: #4F759B;
 }
 
 /* .log-out{
-    
+
 } */
 
 .timeline {
-    float: right;
-    position: relative;
-    text-align: right ;
-    right: 65px;
-    z-index: 1;
+  float: right;
+  position: relative;
+  text-align: right ;
+  right: 65px;
+  z-index: 1;
 
 }
 
-/* .username{
-  
-} */
+.login-button:active,
+.login-button:hover {
+  outline: 0;
+}
 
-  .login-button:active,
-  .login-button:hover {
-    outline: 0;
+@media (min-width: 768px) {
+  .login-button {
+    font-size: 24px;
+    min-width: 196px;
   }
-
-  @media (min-width: 768px) {
-    .login-button {
-      font-size: 24px;
-      min-width: 196px;
-    }
-  }
+}
 
 
 .containerOfHWs {
-  width: 90%;
+width: 90%;
+left: 45px;
 }
 
 .collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+background-color: #eee;
+position: relative;
+left: 55px;
+color: #444;
+cursor: pointer;
+padding: 18px;
+width: 80%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 15px;
 }
 
 iframe {
-  width: 100%;
-  height: 100vh;
+width: 100%;
+height: 100vh;
 }
 
 .active, .collapsible:hover {
-  background-color: #ccc;
+background-color: #ccc;
 }
 
 .content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
+padding: 0 18px;
+display: none;
+overflow: hidden;
+background-color: #f1f1f1;
 }
 
 .login-button{
-  visibility: hidden;
-  /* border: #719FA6; */
-  /* color: #719FA6; */
-  margin: 7px;
-  /* background-color: #5D5179; */
-  padding: 20px;
-  border-radius: 8px;
-  /* font-weight: 500; */
-  /* font-size: 25px; */
-  position: relative;
-  top: 320px;
-  left: 47px;
-  /* align-items: center; */
-  /* background-image: linear-gradient(144deg,#4F759B, #719FA6 50%,#92C9B1); */
-  /* border: 0; */
-  /* border-radius: 8px; */
-  /* box-sizing: border-box; */
-  /* color: #E8E9F3; */
-  /* display: flex; */
-  /* font-size: 20px; */
-  /* justify-content: center; */
-  line-height: 1em;
-  /* max-width: 100%;
-  min-width: 140px; */
-  padding: 19px 24px;
-  /* touch-action: manipulation; */
-  /* white-space: nowrap; */
-  z-index: -1;
+visibility: hidden;
+/* border: #719FA6; */
+/* color: #719FA6; */
+margin: 7px;
+/* background-color: #5D5179; */
+padding: 20px;
+border-radius: 8px;
+/* font-weight: 500; */
+/* font-size: 25px; */
+position: relative;
+top: 320px;
+left: 47px;
+/* align-items: center; */
+/* background-image: linear-gradient(144deg,#4F759B, #719FA6 50%,#92C9B1); */
+/* border: 0; */
+/* border-radius: 8px; */
+/* box-sizing: border-box; */
+/* color: #E8E9F3; */
+/* display: flex; */
+/* font-size: 20px; */
+/* justify-content: center; */
+line-height: 1em;
+/* max-width: 100%;
+min-width: 140px; */
+padding: 19px 24px;
+/* touch-action: manipulation; */
+/* white-space: nowrap; */
+z-index: -1;
 }
 
 .sign-out-button {
-  border: #719FA6; 
-   color: #719FA6;
-  margin: 7px;
-   background-color: #5D5179; 
-  padding: 20px;
-  border-radius: 8px;
-   font-weight: 500; 
-  font-size: 25px;
-  position: relative;
-  top: 320px;
-  left: 47px;
-  align-items: center; 
-   background-image: linear-gradient(144deg,#4F759B, #719FA6 50%,#92C9B1);
-   border: 0; 
-   border-radius: 8px; 
-   box-sizing: border-box; 
-   color: #E8E9F3; 
-   display: flex; 
-   font-size: 20px; 
-   justify-content: center; 
-  line-height: 1em;
-   max-width: 100%;
-  min-width: 140px; 
-  padding: 19px 24px;
-   touch-action: manipulation; 
-   white-space: nowrap; 
-  z-index: -1;
+position: relative;
+left: 0px;
+top: -30px;
+font-style: italic;
+font-weight: normal;
+font-size: 28px;
+line-height: 42px;
+color: #4F759B;
+border: #719FA6;
+ color: #719FA6;
+margin: 7px;
+ background-color: #5D5179;
+padding: 20px;
+border-radius: 8px;
+ font-weight: 500;
+font-size: 25px;
+position: relative;
+top: 100px;
+left: 47px;
+align-items: center;
+ background-image: linear-gradient(144deg,#4F759B, #719FA6 50%,#92C9B1);
+ border: 0;
+ border-radius: 8px;
+ box-sizing: border-box;
+ color: #E8E9F3;
+ display: flex;
+ font-size: 20px;
+ justify-content: center;
+line-height: 1em;
+ max-width: 100%;
+min-width: 140px;
+padding: 19px 24px;
+ touch-action: manipulation;
+ white-space: nowrap;
+z-index: 500;
+}
+
+.collapsible:after {
+content: '\02795'; /* Unicode character for "plus" sign (+) */
+font-size: 13px;
+color: white;
+float: right;
+margin-left: 5px;
+}
+
+.active:after {
+content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
 
 .sign-out-button:active,
 .sign-out-button:hover {
-  outline: 0;
-} 
+outline: 0;
+}
 
 @media (min-width: 768px) {
 .sign-out-button {
-  font-size: 24px;
-  min-width: 196px;
-  }
-} 
+font-size: 24px;
+min-width: 196px;
+}
+}

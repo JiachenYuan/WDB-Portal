@@ -1,18 +1,18 @@
 
+// --- function getTokenFromQuery() ---
+// get url parameter values
+function getTokenFromQuery() {
+    const queryString = window.location.search;
+    // console.log(queryString);
 
-(() => {
-    // --- function getTokenFromQuery() ---
-    // get url parameter values using javascript
-    function getTokenFromQuery() {
-        const queryString = window.location.search;
-        console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    const tkn = urlParams.get('token')
+    // console.log(tkn);
+    
+    return tkn;
+}
 
-        const urlParams = new URLSearchParams(queryString);
-        const tkn = urlParams.get('token')
-        console.log(tkn);
-        
-        return tkn;
-    }
+function update() {
     let token = getTokenFromQuery();
 
 
@@ -30,7 +30,7 @@
         var hw_grade = document.createElement("small");
         hw_grade.id = "hw-grade";
         hw_grade.innerText = " " + grade;
-        console.log(grade);
+        // console.log(grade);
 
         div.appendChild(hw_link);
         div.appendChild(hw_grade);
@@ -40,11 +40,10 @@
 
 
     let hw_list = []
-    // console.log("test")
 
 
-    // --- fetchHW() ---
-    // fetches list of homeworks, given the token obtained from cookies
+    // --- fetchUser() ---
+    // fetch user/me to get username and homeworklist
     async function fetchUser() {
         const response = await fetch('http://localhost:4000/user/me', {
             method: 'GET',
@@ -60,33 +59,33 @@
     }
 
 
-    // grab list of homeworks and create new homework divs, appending them to a list
+    // fetch user then set html elements
     fetchUser().then(userinfo => {
         const user = userinfo.username;
         const hwlist = userinfo.homeworklist;
         for (let i = 0; i < hwlist.length; i++) {
-            // console.log(hws[i])
             hw_list[i] = hwlist[i];
         }
 
         var username_html = document.getElementById("username");
         username_html.innerText = user;
 
-        for (let i = 1; i < hwlist.length + 1; i++) {
-            hw_link = document.getElementById("hw" + i + "link");
-            hw_link.src = hw_list[i - 1].link;
+        for (let i = 1; i < 2; i++) {
+            hw_link = document.getElementById("hw" + i + "Link");
+            if (hw_list[i - 1].link == null) {
+                hw_link.src = "https://jiachenyuan.github.io/JiachenYuan-WDB-education/proj1/index.html";
+            } else {
+                hw_link.src = hw_list[i - 1].link;
+            }
+
         }
 
-        var hw1_link = document.getElementById("hw1Link");
-        hw1_link.src = hw_list[0].link;
-
-        // var hw_HTML_list = document.getElementById("hw_list");  // TODO: insert id for html list of hws
-        // for (let hw of hw_list) {
-        //     console.log("creating hw...")
-        //     hw_HTML_list.appendChild(makeHW(hw.link, hw.grade))  // create child div for each hw
-        // }
+        // var hw1_link = document.getElementById("hw1Link");
+        // hw1_link.src = hw_list[0].link;
     });
-})();
+}
+update();
+
 
 async function onSuccess(googleUser) {
     console.log('Logged in as: ' + googleUser.getBasicProfile().getName()); 
@@ -140,7 +139,30 @@ async function redirectWithoutToken() {
 }
 
 
-async function uploadHwLink() {
-    const form = document.getElementById('hw1Form');
-    console.log(form.elements['fname']);
+async function uploadHwLink(formID) {
+    const form = document.getElementById(formID);
+    const url = form.elements['fname'].value;
+    var hw_number = null;
+    console.log(url);
+    if (formID.length === 7) {
+        hw_number = parseInt(formID.charAt(2), 10);
+    } else {
+        hw_number = parseInt(formID.substring(2, 4));
+    }
+    await fetch(
+        'http://localhost:4000/api/add', 
+        {
+            headers: {
+                'token':getTokenFromQuery(),
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({
+                "hw_number": hw_number-1,
+                "link": url
+            })
+        }
+    ).then(res => res.json().then((res)=> {
+        console.log(res);
+    }));
 }
