@@ -15,7 +15,7 @@ async function onSuccess(googleUser) {
               body: JSON.stringify({
                   "username": userName
               })
-          }).then(res=>res.json().then(converted=>{
+           }).then(res=>res.json().then(converted=>{
             console.log(converted);
             redirectWithToken(converted.token);
           }));
@@ -38,8 +38,7 @@ async function redirectWithToken(token) {
       'longtitle': true,
       'theme': 'dark',
       'onsuccess': onSuccess,
-      'onfailure': onFailure
-
+      'onfailure': onFailure,
     });
   }
 

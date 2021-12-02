@@ -3,19 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="student.css">
+    <meta name="google-signin-client_id" content="521689020340-fb6nm5u9h438hrhubekeh7qml5vqcjqu.apps.googleusercontent.com">
+    <link rel="stylesheet" href="./student.css">
     <title>Student Page</title>
+    <script src="student.js"></script>
 </head>
 <body>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <div>
-        <img class= "logo" src= "design/wdblogo_2.png" alt = "site logo" height= "150px" width= "150px">
-        <img class="timeline" src= "design/timeline.png" alt = "timeline" height = "350" width= "870" >
+        <img class= "logo" src= "./wdblogo.png" alt = "site logo">
+        <img class="timeline" src= "./timeline.png" alt = "timeline">
     </div>
     <div class= "title">
         <header>Student Page</header>
     <div class= "subtitle">
-        <p>First Name Last Name</p>
-    <button class="log-out" >Logout</button> 
+        <p class = username>Username</p>
+    <button class ="sign-out-button" onclick="signOut()">sign out</button> 
+    <div id="my-signin2" class ="login-button"></div>
+
+
+    <!-- Jiachen's editing below-->
+    
+    <div class="containerOfHWs">
+        <button type="button" class="collapsible">something here</button>
+        <div class="content">
+            <iframe class="hw1Link" src="https://jiachenyuan.github.io/JiachenYuan-WDB-education/proj1/index.html" frameborder="0.5"></iframe>
+            <p>Lorem ipsum...</p>
+        </div>
+    </div>
+    
+
+    <!-- Essential function for the collapse effect to work -->
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }
+    </script>
     
 </body>
 </html>
