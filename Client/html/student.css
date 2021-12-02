@@ -1,0 +1,60 @@
+*{
+    font-family: "Helvetica", sans-serif;
+    font-weight: 300;
+    background-color: #E8E9F3;
+  }
+
+.logo{
+    position: absolute;
+    left: 45px;
+    top: 30px;
+
+}
+
+.title{
+    position: relative;
+    left: 50px;
+    top: 150px;
+    font-style: normal;
+    font-weight: 110px;
+    font-size: 55px;
+    line-height: px;
+    color: #571F4E;
+    clear: left;
+}
+
+.subtitle{
+    position: relative;
+    left: 0px;
+    top: -30px;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 42px;
+    color: #4F759B;
+}
+
+.log-out{
+    
+}
+
+.timeline {
+    float: right;
+    position: relative;
+    text-align: right ;
+    right: 65px;
+    z-index: 1;
+
+}
+
+  .login-button:active,
+  .login-button:hover {
+    outline: 0;
+  }
+
+  @media (min-width: 768px) {
+    .login-button {
+      font-size: 24px;
+      min-width: 196px;
+    }
+  }
