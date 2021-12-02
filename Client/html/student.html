@@ -16,8 +16,10 @@
     </div>
     <div class= "title">
         <header>Student Page</header>
+    </div>
     <div class= "subtitle">
-        <p class = username>Username</p>
+        <p class = username id="username">Username</p>
+    </div>
     <button class ="sign-out-button" onclick="signOut()">sign out</button> 
     <div id="my-signin2" class ="login-button"></div>
 
@@ -27,7 +29,14 @@
     <div class="containerOfHWs">
         <button type="button" class="collapsible">something here</button>
         <div class="content">
-            <iframe class="hw1Link" src="https://jiachenyuan.github.io/JiachenYuan-WDB-education/proj1/index.html" frameborder="0.5"></iframe>
+            <form id="hw1Form" action="javascript:uploadHwLink()">
+                <label for="fname">Paste GitHub link here:</label>
+                <input type="text" id="fname" name="fname"><br><br>
+               
+                <input type="submit" value="Submit">
+            </form>
+            
+            <iframe class="hw1Link" id= "hw1Link" src="https://jiachenyuan.github.io/JiachenYuan-WDB-education/proj1/index.html" frameborder="0.5"></iframe>
             <p>Lorem ipsum...</p>
         </div>
     </div>

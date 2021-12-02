@@ -45,30 +45,46 @@
 
     // --- fetchHW() ---
     // fetches list of homeworks, given the token obtained from cookies
-    async function fetchHW() {
-        const response = await fetch('http://localhost:4000/api/list', {
+    async function fetchUser() {
+        const response = await fetch('http://localhost:4000/user/me', {
             method: 'GET',
             headers: {
                 'token': token
             }
         });
-        const hws = await response.json();
-        return hws;
+        const userinfo = await response.json();
+        // console.log(userinfo);
+        // console.log(userinfo.username);
+
+        return userinfo;
     }
 
 
     // grab list of homeworks and create new homework divs, appending them to a list
-    fetchHW().then(hws => {
-        for (let i = 0; i < hws.length; i++) {
+    fetchUser().then(userinfo => {
+        const user = userinfo.username;
+        const hwlist = userinfo.homeworklist;
+        for (let i = 0; i < hwlist.length; i++) {
             // console.log(hws[i])
-            hw_list[i] = hws[i];
+            hw_list[i] = hwlist[i];
         }
 
-        var hw_HTML_list = document.getElementById("hw_list");  // TODO: insert id for html list of hws
-        for (let hw of hw_list) {
-            console.log("creating hw...")
-            // hw_HTML_list.appendChild(makeHW(hw.link, hw.grade))  // create child div for each hw
+        var username_html = document.getElementById("username");
+        username_html.innerText = user;
+
+        for (let i = 1; i < hwlist.length + 1; i++) {
+            hw_link = document.getElementById("hw" + i + "link");
+            hw_link.src = hw_list[i - 1].link;
         }
+
+        var hw1_link = document.getElementById("hw1Link");
+        hw1_link.src = hw_list[0].link;
+
+        // var hw_HTML_list = document.getElementById("hw_list");  // TODO: insert id for html list of hws
+        // for (let hw of hw_list) {
+        //     console.log("creating hw...")
+        //     hw_HTML_list.appendChild(makeHW(hw.link, hw.grade))  // create child div for each hw
+        // }
     });
 })();
 
@@ -121,4 +137,10 @@ async function signOut() {
 
 async function redirectWithoutToken() {
     window.location.replace(`http://localhost:8000/index.html`);  
+}
+
+
+async function uploadHwLink() {
+    const form = document.getElementById('hw1Form');
+    console.log(form.elements['fname']);
 }
