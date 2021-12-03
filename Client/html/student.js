@@ -15,30 +15,6 @@ function getTokenFromQuery() {
 function update() {
     let token = getTokenFromQuery();
 
-
-    // --- creates a HW div using the link and grade ---
-    const makeHW = (link, grade) => {
-        var div = document.createElement("div");
-        div.className = "hw";  // TODO: insert chosen div name for homeworks
-        // TODO: customize div depending on design
-
-        var hw_link = document.createElement("small");
-        hw_link.id = "hw-link";
-        hw_link.innerText = link;
-        // console.log(link);
-
-        var hw_grade = document.createElement("small");
-        hw_grade.id = "hw-grade";
-        hw_grade.innerText = " " + grade;
-        // console.log(grade);
-
-        div.appendChild(hw_link);
-        div.appendChild(hw_grade);
-        return div
-    }
-
-
-
     let hw_list = []
 
 
@@ -70,14 +46,17 @@ function update() {
         var username_html = document.getElementById("username");
         username_html.innerText = user;
 
-        for (let i = 1; i < 2; i++) {
+        for (let i = 1; i < 13; i++) {
             hw_link = document.getElementById("hw" + i + "Link");
-            if (hw_list[i - 1].link == null) {
-                hw_link.src = "https://jiachenyuan.github.io/JiachenYuan-WDB-education/proj1/index.html";
+            var submit_button = document.getElementById("submitButton" + i);
+            if (hw_list[i - 1].link == "null" || hw_list[i - 1].link == "") {
+                submit_button.value = "Submit";
+                // console.log("sub");
             } else {
-                hw_link.src = hw_list[i - 1].link;
+                submit_button.value = "Resubmit";
+                // console.log("resub");
             }
-
+            hw_link.src = hw_list[i - 1].link;
         }
 
         // var hw1_link = document.getElementById("hw1Link");
@@ -164,5 +143,6 @@ async function uploadHwLink(formID) {
         }
     ).then(res => res.json().then((res)=> {
         update();
+        
     }));
 }

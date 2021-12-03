@@ -27,7 +27,7 @@ router.post("/signup", [
 
     const hwList = new Array(12);
     for (let i=0; i<12; i++) {
-      hwList[i] = {link: "null", grade: "ungraded"};
+      hwList[i] = {link: "", grade: "ungraded"};
     }
 
     try {

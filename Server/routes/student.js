@@ -33,7 +33,7 @@ router.delete("/delete", auth, async (req, res) => {
         const user = await User.findById(req.user.id);
         let list = user.homeworklist;
         const hw_number = req.body.hw_number;
-        list[hw_number] = {link: "null", grade: "ungraded"};
+        list[hw_number] = {link: "", grade: "ungraded"};
         user.save()
         .then(savedDoc => res.json(savedDoc.homeworklist));
 
